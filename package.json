@@ -1,0 +1,16 @@
+{
+  "name": "local-music-player",
+  "version": "1.0.0",
+  "description": "a simple music local player with the integration of API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cylver",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
