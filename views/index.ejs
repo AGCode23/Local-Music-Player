@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Music Player</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div class="main-div">
+      <div class="music-image">
+        <img style="height: 200px; width: 200px;" src=<%= image %> alt=<%= singer %> />
+      </div>
+      <div class="music-details">
+        <h2><%= title %></h2>
+        <h2><%= singer %></h2>
+      </div>
+      <div class="music-buttons">
+        <input type="submit" name="prev" id="prev" value="Prev" />
+        <input type="submit" name="play" id="play" value="Play" />
+        <input type="submit" name="next" id="next" value="Next" />
+      </div>
+      <audio id="audioFile" src="<%= music %>"></audio>
+    </div>
+    <script>
+        document.querySelector("#play").addEventListener("click", () => {
+            const playMusic = document.querySelector("#audioFile");
+            console.log(playMusic)
+            playMusic.play();
+        })
+    </script>
+  </body>
+</html>
