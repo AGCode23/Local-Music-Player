@@ -10,16 +10,32 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+  res.render("index.ejs");
+});
+
+app.post("/random", async (req, res) => {
   try {
     const response = await axios.get(API_KEY + "/random");
     const result = response.data;
-    console.log(result.music);
     res.render("index.ejs", {
       title: result.title,
       singer: result.singer,
       image: result.image,
       music: result.music,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Something went wrong." });
+  }
+});
+
+app.post("/library", async (req, res) => {
+  try {
+    const response = await axios.get(API_KEY + "/all");
+    const result = response.data;
+    res.render("library.ejs", {
+      content: result,
     });
   } catch (error) {
     console.log(error);

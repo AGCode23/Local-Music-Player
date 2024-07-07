@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Music Player</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div class="home-buttons">
+      <form method="post">
+        <input
+          type="submit"
+          value="Random"
+          id="random"
+          name="random"
+          formaction="/random"
+        />
+        <input
+          type="submit"
+          value="Library"
+          id="library"
+          name="library"
+          formaction="/library"
+        />
+        <input
+          type="submit"
+          value="About"
+          id="about"
+          name="about"
+          formaction="/about"
+        />
+      </form>
+    </div>
+  </body>
+</html>

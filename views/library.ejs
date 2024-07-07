@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Music Player</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div class="grid-main">
+      <div class="home-container"><%- include('home.ejs') %></div>
+      <div class="library-div">
+        <% content.forEach((c, index) => { %>
+            <div class="library-card">
+                <img style="height: 100px; width: 100px;" src=<%= c.image %> alt=<%= c.singer %> />
+                <h2 style="font-size: 1.2rem;"><%= c.title %></h2>
+                <h2 style="font-size: 1.2rem;"><%= c.singer %></h2>
+                <input type="submit" name="play" class="play-library" data-index="<%= index %>" value="Play">
+                <audio class="audioFileLib" id="audio-<%= index %>" src="<%= c.music %>"></audio>
+            </div>
+        <% }); %>
+      </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const playButtons = document.querySelectorAll('.play-library');
+        
+        playButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const index = this.getAttribute('data-index');
+            const audioElement = document.getElementById('audio-' + index);
+            if (audioElement) {
+              // Pause all other audio elements
+              document.querySelectorAll('.audioFileLib').forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+              });
+              // Play the selected audio element
+              audioElement.play();
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

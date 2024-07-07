@@ -12,6 +12,10 @@ app.get("/random", (req, res) => {
   res.json(music[randomNumber]);
 });
 
+app.get('/all' , (req , res)=>{
+  res.json(music);
+})
+
 app.listen(port, () =>
   console.log("> Server is up and running on port : " + port)
 );

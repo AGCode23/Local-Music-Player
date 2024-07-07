@@ -7,27 +7,39 @@
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <div class="main-div">
-      <div class="music-image">
-        <img style="height: 200px; width: 200px;" src=<%= image %> alt=<%= singer %> />
+    <div class="grid-main">
+      <div class="home-container">
+        <%- include('home.ejs') %>
       </div>
-      <div class="music-details">
-        <h2><%= title %></h2>
-        <h2><%= singer %></h2>
+      <div class="main-div">
+        <% if (locals.image) { %>
+          <div class="music-image">
+            <img style="height: 200px; width: 200px;" src=<%= locals.image %> alt=<%= locals.singer %> />
+          </div>
+          <div class="music-details">
+            <h2><%= locals.title %></h2>
+            <h2><%= locals.singer %></h2>
+          </div>
+          <div class="music-buttons">
+            <input type="submit" name="prev" id="prev" value="Prev" />
+            <input type="submit" name="play" id="play" value="Play" />
+            <input type="submit" name="next" id="next" value="Next" />
+          </div>
+          <audio id="audioFile" src="<%= locals.music %>"></audio>
+        </div>
+        <% } else { %>
+         <div class="home-screen">
+          <h1>A Simple Local Music Player</h1>
+         </div>
+         <% } %>
       </div>
-      <div class="music-buttons">
-        <input type="submit" name="prev" id="prev" value="Prev" />
-        <input type="submit" name="play" id="play" value="Play" />
-        <input type="submit" name="next" id="next" value="Next" />
-      </div>
-      <audio id="audioFile" src="<%= music %>"></audio>
-    </div>
-    <script>
+      <script>
         document.querySelector("#play").addEventListener("click", () => {
-            const playMusic = document.querySelector("#audioFile");
+          const playMusic = document.querySelector("#audioFile");
             console.log(playMusic)
             playMusic.play();
         })
+        document.querySelector("#play").click();
     </script>
   </body>
 </html>

@@ -4,12 +4,35 @@
   padding: 0;
 }
 
+/* Webapp Background */
 body {
   background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='120' height='20' patternTransform='scale(1) rotate(160)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(259, 59%, 59%, 1)'/><path d='M-50.129 12.685C-33.346 12.358-16.786 4.918 0 5c16.787.082 43.213 10 60 10s43.213-9.918 60-10c16.786-.082 33.346 7.358 50.129 7.685'  stroke-width='1' stroke='hsla(40, 59%, 59%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
   background-repeat: no-repeat;
   height: 100%;
 }
 
+/* Grid for webapp */
+.grid-main {
+  display: grid;
+  grid-template-columns: 0.09fr 1fr;
+}
+
+/* Home CSS */
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.home-buttons input {
+  padding: 15px 0;
+  width: 60px;
+  font-size: 0.7rem;
+}
+
+/* Main CSS */
 .main-div {
   display: flex;
   flex-direction: column;
@@ -36,6 +59,31 @@ body {
 
 .music-buttons input {
   padding: 15px 40px;
+  background: #d5ad5a;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+}
+
+/* Library CSS */
+.library-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.library-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  text-align: center;
+}
+
+.library-card input {
+  padding: 9px 20px;
   background: #d5ad5a;
   outline: none;
   border: none;
